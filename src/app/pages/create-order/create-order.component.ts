@@ -243,10 +243,12 @@ export class CreateOrderComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe(
         (res: any) => {
           this.UserDetails = res;
-          this.stat_user = this.UserDetails['statuscode'];
+          this.stat_user = this.UserDetails.userDetail[0]['statuscode'];
+          // console.log('status', this.UserDetails.userDetail[0]['statuscode']);
           console.log('My User details', this.UserDetails);
           const userObject = this.UserDetails['profile'];
-          this.descriptions = this.UserDetails['description'];
+          this.descriptions = this.UserDetails.userDesc['description'];
+          console.log(this.descriptions);
 
           this.user_data = [this.userdata];
           // console.log(this.user_data);
